@@ -47,6 +47,30 @@ app.post("/create", (req, res) => {
 	});
 });
 
+app.post("/insertcontactdata", (req, res) => {
+	
+	pool.getConnection((err, connection) => {
+		if(err) throw err
+		console.log('connected as id '+connection.threadId);
+		const firstname = req.body.firstname;
+		const lastname = req.body.firstname;
+		const emailaddress = req.body.firstname;
+		const phone = req.body.firstname;
+		
+		/*[firstname, lastname] is an array with the values inside it*/
+		connection.query("inser into contactdata (firstname, lastname, emailaddress, phone) values(?,?,?,?)", [firstname, lastname, email, mitteilung], (err, rows) => {
+			if(err){
+				console.log(err);
+			}else{
+				res.send('Tupel with the record firstname: '+firstname+' has been added');
+			}
+		});
+	});
+	
+});
+
+
+
 app.listen(port, () => {
     console.log('listeneing on port '+ port);
 });
