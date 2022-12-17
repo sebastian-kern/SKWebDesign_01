@@ -33,7 +33,7 @@ app.get("/usercontactdata", (req, res) => {
 });
 
 app.post("/create", (req, res) => {
-	pool.getConnection((err, connection) => {
+    pool.getConnection((err, connection) => {
         if(err) throw err
         console.log('connected as id '+connection.threadId);
 			
@@ -45,8 +45,8 @@ app.post("/create", (req, res) => {
 			}
 		});
 	});
-)};
+});
 
-app.listen(PORT, () => {
-    console.log('listeneing on port '+ PORT);
+app.listen(port, () => {
+    console.log('listeneing on port '+ port);
 });
