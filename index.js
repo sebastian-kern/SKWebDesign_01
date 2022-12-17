@@ -9,11 +9,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 const pool = mysql.createPool({
-    connectionLimit: 10,
     host: 'containers-us-west-168.railway.app',
-	port: 6943,
+	port: "6943",
+	//port: 6943,
     user: 'root',
     password: 'CSHc7NSJwHE5TdvIfdcV',
+	connectionLimit: 10,
     database: 'railway'
 });
 
